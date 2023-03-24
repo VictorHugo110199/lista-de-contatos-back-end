@@ -4,6 +4,7 @@ import { UserController } from "../controllers/User.controller";
 import { DataMiddleware } from "../middlewares/Data.middleware";
 import { UserMiddleware } from "../middlewares/User.middleware";
 import { LoginSchema } from "../schemas/Login.schema";
+import { contactsRoutes } from "./contact.routes";
 import { userRoutes } from "./user.routes";
 
 const userMiddleware = new UserMiddleware();
@@ -18,3 +19,4 @@ routes.use(
   dataMiddleware.ensureData(loginSchema.login),
   new UserController().login
 );
+routes.use("/contacts", contactsRoutes);

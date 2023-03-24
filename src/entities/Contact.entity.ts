@@ -21,8 +21,11 @@ class Contact {
   @Column({ length: 30, nullable: false })
   name: string;
 
-  @Column({ length: 50, nullable: false, unique: true })
+  @Column({ length: 50, nullable: false })
   email: string;
+
+  @Column()
+  number: number;
 
   @CreateDateColumn()
   createdAt: Date;

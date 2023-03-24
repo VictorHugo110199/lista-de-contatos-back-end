@@ -34,8 +34,8 @@ class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @OneToMany(() => Contact, (Contact) => Contact.id)
-  Contact: Contact[];
+  @OneToMany(() => Contact, (contact) => contact.user)
+  contacts: Contact[];
 }
 
 export default User;
