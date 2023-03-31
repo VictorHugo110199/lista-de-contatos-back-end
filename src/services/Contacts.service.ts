@@ -45,10 +45,6 @@ export class ContactService {
       throw new ConflictError("Contato não está ativo!");
     }
 
-    if (contact.user.id !== user!.id) {
-      throw new BadRequestError("Você só pode Alterar seus contatos!");
-    }
-
     await contactsRepository.delete(contact.id);
     return 204;
   }
@@ -70,9 +66,6 @@ export class ContactService {
 
     if (!contact) {
       throw new NotFoundError("Contato não encontrado!");
-    }
-    if (contact.user.id !== foundUser!.id) {
-      throw new BadRequestError("Você só pode Alterar seus contatos!");
     }
 
     const keys = Object.keys(payload);
